@@ -1,3 +1,14 @@
 body{
     font-family: "Lato", sans-serif;
 }
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container{
+    max-width: 90%;
+    margin: 0 auto;
+}
