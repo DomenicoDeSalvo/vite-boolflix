@@ -1,5 +1,11 @@
 <script>
     export default {
+        data(){
+            return{
+                inputValue:''
+
+            }
+        }
         
     }
 </script>
@@ -16,8 +22,8 @@
                 </ul>
                 <h2>Boolflix</h2>
                 <div>
-                    <input type="search">
-                    <input type="submit">
+                    <input v-model="inputValue" type="search" placeholder="Cerca film o serie">
+                    <button>Cerca</button>
                 </div>
             </div>
         </nav>
@@ -29,6 +35,18 @@
         display: flex;
         align-items: center;
         gap: 6px;
+
+        li{
+            cursor: pointer;
+        }
+    }
+
+    h2{
+        cursor: pointer;
+    }
+
+    nav::after{
+       
     }
 
 </style>

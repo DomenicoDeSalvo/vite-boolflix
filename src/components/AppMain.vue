@@ -1,12 +1,16 @@
 <script>
-    export default {
+    import Card from './AppCard.vue';
+    export default{
+        components:{
+            Card
+        }
         
     }
 </script>
 
 <template>
     <div>
-
+        <Card/>
     </div>
 </template>
 
