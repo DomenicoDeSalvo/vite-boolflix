@@ -28,7 +28,7 @@
     }
 
     .flag{
-        width: 30px;
+        max-width: 20px;
     }
 
 </style>
