@@ -5,17 +5,19 @@
                 type:Object,
                 required: true
             }
-        },        
+        },
+                
     }
 </script>
 
 <template>
     <li>
         <div>
-            <div>{{ item.title }}</div>
-            <div>{{ item.original_title }}</div>
+            <div><img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt="Anteprima non disponibile"></div>
+            <div>nome{{ item.title }}</div>
+            <div>originale{{ item.original_title }}</div>
             <div><img :src="item.original_language" :alt=item.original_language></div>
-            <div>{{ item.vote_average }}</div>
+            <div>voto{{ item.vote_average }}</div>
         </div>
     </li>
 </template>
