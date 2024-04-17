@@ -131,6 +131,14 @@
     header{
         background-color: black;
         padding: 20px 0;
+
+        &::after{
+        content: '';
+        display: block;
+        border: 1px solid red;
+        width: 100%;
+       
+    }
     }
 
     .nav__list{
@@ -161,10 +169,6 @@
                 outline: none;
             }
         }
-    }
-
-    nav::after{
-       
     }
 
 </style>
