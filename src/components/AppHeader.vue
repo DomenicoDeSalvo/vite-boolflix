@@ -21,9 +21,10 @@
                     }
                 }).then((res)=>{
                     store.movies  = res.data.results
-                        //Ad alcune lingue sono sostituite le bandiere corrispondenti
-
+                    //Ad alcune lingue sono sostituite le bandiere corrispondenti
                     this.textToFlag(store.movies)
+                    //Il voto viene portato da una scala 10 a una a 5
+                    this.changeVote(store.movies)
                 })
                 //serie
                 axios.get('https://api.themoviedb.org/3/search/tv',{
@@ -40,6 +41,8 @@
                         delete element.name, element.original_name;
                         //Ad alcune lingue sono sostituite le bandiere corrispondenti
                         this.textToFlag(store.series)
+                        //Il voto viene portato da una scala 10 a una a 5
+                        this.changeVote(store.series)
                     });
                 })
             },
@@ -58,8 +61,31 @@
                     } else if (element.original_language === 'ru'){
                         element.original_language = "/public/russia.png"
                     }
-                    value = element.original_language
-                    console.log(value)
+                    value = element.original_language;//String
+                })
+                return{
+                    value
+                }
+            },
+
+            //Funzione che cambia la scala dei voti da 0-10 a 0-5
+            changeVote(array){
+                let value ='';//Number
+                array.forEach(element => {
+                    if(element.vote_average > 8.9){
+                        element.vote_average = 5
+                    } else if (element.vote_average > 6.9){
+                        element.vote_average = 4
+                    } else if (element.vote_average > 4.9){
+                        element.vote_average = 3
+                    } else if (element.vote_average > 2.9){
+                        element.vote_average = 2
+                    } else if (element.vote_average > 1){
+                        element.vote_average = 1
+                    } else {
+                        element.vote_average = 0
+                    }
+                    value= element.vote_average;//Number
                 })
                 return{
                     value
