@@ -20,7 +20,16 @@
                         query:this.inputValue
                     }
                 }).then((res)=>{
-                    store.movies = res.data.results
+                    store.movies  = res.data.results
+                    store.movies.forEach(element =>{
+                        if(element.original_language === 'en'){
+                            element.original_language = "/public/united-kingdom.png"
+                        } else if (element.original_language === 'it'){
+                            element.original_language = "/public/italy.png"
+                        } else if (element.original_language === 'es'){
+                            element.original_language = "/public/spain.png"
+                        }
+                    })
                 })
                 //serie
                 axios.get('https://api.themoviedb.org/3/search/tv',{
@@ -35,15 +44,26 @@
                         element.title = element.name;
                         element.original_title = element.original_name;
                         delete element.name, element.original_name;
+                        //Ad alcune lingue sono sostituite le bandiere corrispondenti
+                        if(element.original_language === 'en'){
+                            element.original_language = "/public/united-kingdom.png"
+                        } else if (element.original_language === 'it'){
+                            element.original_language = "/public/italy.png"
+                        } else if (element.original_language === 'es'){
+                            element.original_language = "/public/spain.png"
+                        }
                     });
                 })
-
-
             },
 
-            changeProperties(){
 
-            }
+            // textToFlag(array){
+            //     for(i = 0; i < array.length; i++){
+            //         if(array.original_language )
+            //     }
+            // }
+
+            
         }
         
     }
@@ -61,7 +81,7 @@
                 </ul>
                 <h2>Boolflix</h2>
                 <div>
-                    <input v-model="inputValue" type="search" placeholder="Cerca film o serie">
+                    <input @keyup.enter="fetchData" v-model="inputValue" type="search" placeholder="Cerca film o serie">
                     <button @click="fetchData">Cerca</button>
                 </div>
             </div>

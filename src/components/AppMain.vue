@@ -19,9 +19,6 @@
     <main>
         <section>
             <div class="container">
-                <h2>I nostri film</h2>
-            </div>
-            <div class="container">
                 <ul v-if="store.movies.length !== 0 && store.series.length !== 0">
                     <Card v-for="movie in store.movies" :key="movie.id" :item="movie"/>
                     <Card v-for="serie in store.series" :key="serie.id" :item="serie"/>

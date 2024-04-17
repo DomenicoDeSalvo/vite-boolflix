@@ -5,8 +5,7 @@
                 type:Object,
                 required: true
             }
-        }
-        
+        },        
     }
 </script>
 
@@ -15,7 +14,7 @@
         <div>
             <div>{{ item.title }}</div>
             <div>{{ item.original_title }}</div>
-            <div></div>
+            <div><img :src="item.original_language" :alt=item.original_language></div>
             <div>{{ item.vote_average }}</div>
         </div>
     </li>
