@@ -13,7 +13,8 @@
 <template>
     <li class=" col-4">
         <div>
-            <div><img class="poster" :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt="Anteprima non disponibile"></div>
+            <div v-if="item.poster_path === null"><img class="poster" src="/public/Non disponibile.png" alt=""></div>            
+            <div><img class="poster" :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt=""></div>            
             <div>nome{{ item.title }}</div>
             <div v-if="item.title !== item.original_title">originale{{ item.original_title }}</div>
             <div><img class="flag" :src="item.original_language" :alt=item.original_language></div>
