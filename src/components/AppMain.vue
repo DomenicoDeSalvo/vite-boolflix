@@ -19,16 +19,22 @@
     <main>
         <section>
             <div class="container">
-                <ul v-if="store.movies.length !== 0 && store.series.length !== 0">
-                    <Card v-for="movie in store.movies" :key="movie.id" :item="movie"/>
-                    <Card v-for="serie in store.series" :key="serie.id" :item="serie"/>
-                </ul>
-                <li v-else>Nessun prodotto trovato</li>
+                <div class="row">
+                    <ul v-if="store.movies.length !== 0 && store.series.length !== 0">
+                        <Card v-for="movie in store.movies" :key="movie.id" :item="movie"/>
+                        <Card v-for="serie in store.series" :key="serie.id" :item="serie"/>
+                    </ul>
+                    <li v-else>Nessun prodotto trovato</li>
+                </div>
             </div>
         </section>
     </main>
 </template>
 
 <style lang="scss" scoped>
+
+main{
+    padding: 30px 0;
+}
 
 </style>

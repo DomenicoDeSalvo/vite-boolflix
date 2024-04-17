@@ -6,9 +6,14 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .container{
     max-width: 90%;
     margin: 0 auto;
+}
+
+.col-4{
+    width: calc(100% / 3);
 }
