@@ -1,5 +1,7 @@
 <script>
     import Card from './AppCard.vue';
+    import {store} from '../store.js';
+
     export default{
         components:{
             Card
