@@ -137,7 +137,6 @@
         display: flex;
         align-items: center;
         gap: 20px;
-        color: white;
 
         li{
             cursor: pointer;

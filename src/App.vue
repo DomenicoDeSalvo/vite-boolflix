@@ -11,11 +11,19 @@
 </script>
 
 <template>
-  <AppHeader/>
-  <AppMain/>
+  <div class="app">
+    <AppHeader/>
+    <AppMain/>
+  </div>
 </template>
 
 
 <style lang="scss">
   @use './assets/style/general';
+  
+  .app{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 </style>

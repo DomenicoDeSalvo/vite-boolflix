@@ -11,7 +11,7 @@
 </script>
 
 <template>
-    <li>
+    <li class="col-4">
         <div>
             <div><img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt="Anteprima non disponibile"></div>
             <div>nome{{ item.title }}</div>
