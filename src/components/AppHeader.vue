@@ -59,6 +59,8 @@
                         this.changeVote(store.series)
                     });
                 })
+
+                this.inputValue = ''
             },
             //Funzione che attribuisce ad alcuni linguaggi una bandierina corrispondente
             textToFlag(array){
