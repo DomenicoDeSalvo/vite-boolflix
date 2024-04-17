@@ -22,10 +22,11 @@
                 <h2>I nostri film</h2>
             </div>
             <div class="container">
-                <ul v-if="store.movies.lenght !== 0">
-                    <AppCard v-for="movie in store.movies" :key="movie.id" :item="movie"/>
+                <ul v-if="store.movies.length !== 0 && store.series.length !== 0">
+                    <Card v-for="movie in store.movies" :key="movie.id" :item="movie"/>
+                    <Card v-for="serie in store.series" :key="serie.id" :item="serie"/>
                 </ul>
-                <div v-else>Nessun film corrisponde ai criteri di ricerca.</div>
+                <li v-else>Nessun prodotto trovato</li>
             </div>
         </section>
     </main>

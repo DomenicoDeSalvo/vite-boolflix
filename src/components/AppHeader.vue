@@ -11,7 +11,9 @@
         },
         
         methods:{
+            //Funzione per recuperare film e serie dal catalogo
             fetchData(){
+                //film
                 axios.get('https://api.themoviedb.org/3/search/movie',{
                     params:{
                         api_key: '90d34bf2642e90109d9e5d613f99a3a9',
@@ -20,6 +22,27 @@
                 }).then((res)=>{
                     store.movies = res.data.results
                 })
+                //serie
+                axios.get('https://api.themoviedb.org/3/search/tv',{
+                    params:{
+                        api_key: '90d34bf2642e90109d9e5d613f99a3a9',
+                        query:this.inputValue
+                    }
+                }).then((res)=>{
+                    store.series = res.data.results
+                    //Funzione che cambia il nome delle proprietà delle serie in modo tale che possano essere mostrate nelle card senza problemi.
+                    store.series.forEach(element => {
+                        element.title = element.name;
+                        element.original_title = element.original_name;
+                        delete element.name, element.original_name;
+                    });
+                })
+
+
+            },
+
+            changeProperties(){
+
             }
         }
         

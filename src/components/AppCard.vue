@@ -15,7 +15,7 @@
         <div>
             <div>{{ item.title }}</div>
             <div>{{ item.original_title }}</div>
-            <div>{{ item.original_language }}</div>
+            <div></div>
             <div>{{ item.vote_average }}</div>
         </div>
     </li>
