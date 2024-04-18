@@ -6,6 +6,12 @@
                 required: true
             }
         },
+
+        data(){
+            return{
+                value: this.item.vote_average
+            }
+        }
                 
     }
 </script>
@@ -35,7 +41,9 @@
                         </li>
                         <li>
                             <span class="card__title">Valutazione: </span>
-                            <span>{{ item.vote_average }}</span>
+                            <span><font-awesome-icon v-for="n in item.vote_average" :key="n" :icon="['fas', 'star']" /></span>
+                            <span><font-awesome-icon v-for="n in 5 - item.vote_average" :key="n" :icon="['far', 'star']" /></span>
+
                         </li>
                         <!-- Viene mostrata anche la trama dell'opera, se non dovesse essere presente verrà mostrato "Non disponibile", se dovesse essere troppo lunga verrà tagliata dopo 500 caratteri. -->
                         <li>
