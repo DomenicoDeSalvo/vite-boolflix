@@ -22,10 +22,10 @@
                 <div class="alert" v-if="store.movies.length === 0 && store.series.length === 0">
                     Nessun prodotto trovato
                 </div>
-                <ul v-else class="row">
+                <div v-else class="row">
                     <Card v-for="movie in store.movies" :key="movie.id" :item="movie"/>
                     <Card v-for="serie in store.series" :key="serie.id" :item="serie"/>
-                </ul>
+                </div>
             </div>
         </section>
     </main>
