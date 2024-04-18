@@ -10,7 +10,7 @@
             return{
                 store: store
             }
-        }
+        },
         
     }
 </script>

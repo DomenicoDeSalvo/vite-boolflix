@@ -4,7 +4,7 @@
     export default {
         data(){
             return{
-                inputValue:'',
+                inputValue:'mandalorian',
                 query:'',
                 navBar:[
                     {
@@ -107,6 +107,9 @@
                     value
                 }
             }
+        },
+        created(){
+            this.fetchData()
         }
         
     }

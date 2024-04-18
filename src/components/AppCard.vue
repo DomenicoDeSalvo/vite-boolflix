@@ -17,7 +17,7 @@
             <li v-if="item.poster_path === null">
                 <img class="poster" src="/public/Non disponibile.png" alt="">
             </li>            
-            <li>
+            <li v-else>
                 <img class="poster" :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt="">
             </li> 
             <!-- Altre informazioni sull'opera -->
