@@ -35,8 +35,6 @@
                     }
                 }).then((res)=>{
                     store.movies  = res.data.results
-                    //Ad alcune lingue sono sostituite le bandiere corrispondenti
-                    this.textToFlag(store.movies)
                     //Il voto viene portato da una scala 10 a una a 5
                     this.changeVote(store.movies)
                 })
@@ -53,8 +51,6 @@
                         element.title = element.name;
                         element.original_title = element.original_name;
                         delete element.name, element.original_name;
-                        //Ad alcune lingue sono sostituite le bandiere corrispondenti
-                        this.textToFlag(store.series)
                         //Il voto viene portato da una scala 10 a una a 5
                         this.changeVote(store.series)
                     });
@@ -62,28 +58,6 @@
 
                 this.inputValue = ''
             },
-            //Funzione che attribuisce ad alcuni linguaggi una bandierina corrispondente
-            textToFlag(array){
-                let value = '';//string
-                array.forEach(element => {
-                    if(element.original_language === 'en'){
-                        element.original_language = "/public/united-kingdom.png"
-                    } else if (element.original_language === 'it'){
-                        element.original_language = "/public/italy.png"
-                    } else if (element.original_language === 'es'){
-                        element.original_language = "/public/spain.png"
-                    } else if (element.original_language === 'fr'){
-                        element.original_language = "/public/france.png"
-                    } else if (element.original_language === 'ru'){
-                        element.original_language = "/public/russia.png"
-                    }
-                    value = element.original_language;//String
-                })
-                return{
-                    value
-                }
-            },
-
             //Funzione che cambia la scala dei voti da 0-10 a 0-5
             changeVote(array){
                 let value ='';//Number

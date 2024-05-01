@@ -1,5 +1,17 @@
 <script>
     export default {
+        data(){
+            return{
+                flags:{
+
+                    en:"/public/united-kingdom.png",
+                    it:"/public/italy.png",
+                    es:"/public/spain.png",
+                    fr:"/public/france.png",
+                    ru:"/public/russia.png"
+                }
+            }
+        },
         props:{
             item:{
                 type:Object,
@@ -30,7 +42,7 @@
                             <span>{{ item.original_title }}</span>
                         </li>
                         <li>
-                            <img class="flag" :src="item.original_language" :alt=item.original_language>
+                            <img class="flag" :src="flags[item.original_language]" :alt=item.original_language>
                         </li>
                         <li>
                             <span class="card__title">Valutazione: </span>
