@@ -34,9 +34,10 @@
                         query:this.inputValue
                     }
                 }).then((res)=>{
-                    store.movies  = res.data.results
-                    //Il voto viene portato da una scala 10 a una a 5
-                    this.changeVote(store.movies)
+                    store.movies = res.data.results.map((el) => {
+                        el.vote = Math.ceil(el.vote_average / 2)
+                        return el
+                    })
                 })
                 //serie
                 axios.get('https://api.themoviedb.org/3/search/tv',{
@@ -46,40 +47,16 @@
                     }
                 }).then((res)=>{
                     //Funzione che cambia il nome delle proprietà delle serie in modo tale che possano essere mostrate nelle card senza problemi.
-                    store.series = res.data.results.map((el)=>{
+                    store.series = res.data.results.map((el) => {
                         el.title = el.name
                         el.original_title = el.original_name
-                        return{
-                            el
-                        }
+                        el.vote = Math.ceil(el.vote_average / 2)
+                        return el
                     })
                 })
 
                 this.inputValue = ''
             },
-            //Funzione che cambia la scala dei voti da 0-10 a 0-5
-            changeVote(array){
-                let value ='';//Number
-                array.forEach(element => {
-                    if(element.vote_average > 8.9){
-                        element.vote_average = 5
-                    } else if (element.vote_average > 6.9){
-                        element.vote_average = 4
-                    } else if (element.vote_average > 4.9){
-                        element.vote_average = 3
-                    } else if (element.vote_average > 2.9){
-                        element.vote_average = 2
-                    } else if (element.vote_average > 1){
-                        element.vote_average = 1
-                    } else {
-                        element.vote_average = 0
-                    }
-                    value= element.vote_average;//Number
-                })
-                return{
-                    value
-                }
-            }
         },
         created(){
             this.fetchData()

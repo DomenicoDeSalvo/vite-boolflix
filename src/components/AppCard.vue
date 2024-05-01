@@ -40,8 +40,8 @@
                         </li>
                         <li>
                             <span class="card__title">Valutazione: </span>
-                            <span><font-awesome-icon v-for="n in item.vote_average" :key="n" :icon="['fas', 'star']" /></span>
-                            <span><font-awesome-icon v-for="n in 5 - item.vote_average" :key="n" :icon="['far', 'star']" /></span>
+                            <span><font-awesome-icon v-for="n in item.vote" :key="n" :icon="['fas', 'star']" /></span>
+                            <span><font-awesome-icon v-for="n in 5 - item.vote" :key="n" :icon="['far', 'star']" /></span>
 
                         </li>
                         <li>
