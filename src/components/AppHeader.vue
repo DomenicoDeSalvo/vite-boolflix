@@ -45,15 +45,14 @@
                         query:this.inputValue
                     }
                 }).then((res)=>{
-                    store.series = res.data.results
                     //Funzione che cambia il nome delle proprietà delle serie in modo tale che possano essere mostrate nelle card senza problemi.
-                    store.series.forEach(element => {
-                        element.title = element.name;
-                        element.original_title = element.original_name;
-                        delete element.name, element.original_name;
-                        //Il voto viene portato da una scala 10 a una a 5
-                        this.changeVote(store.series)
-                    });
+                    store.series = res.data.results.map((el)=>{
+                        el.title = el.name
+                        el.original_title = el.original_name
+                        return{
+                            el
+                        }
+                    })
                 })
 
                 this.inputValue = ''

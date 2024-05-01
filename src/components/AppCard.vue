@@ -1,15 +1,9 @@
 <script>
+    import {store} from '../store.js';
     export default {
         data(){
             return{
-                flags:{
-
-                    en:"/public/united-kingdom.png",
-                    it:"/public/italy.png",
-                    es:"/public/spain.png",
-                    fr:"/public/france.png",
-                    ru:"/public/russia.png"
-                }
+                store
             }
         },
         props:{
@@ -42,7 +36,7 @@
                             <span>{{ item.original_title }}</span>
                         </li>
                         <li>
-                            <img class="flag" :src="flags[item.original_language]" :alt=item.original_language>
+                            <img class="flag" :src="store.flags[item.original_language]" :alt=item.original_language>
                         </li>
                         <li>
                             <span class="card__title">Valutazione: </span>
